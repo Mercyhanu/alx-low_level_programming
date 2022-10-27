@@ -1,23 +1,22 @@
 #include "main.h"
 
 /**
- * Main - print_numbers - function that print integer numbers
- *
- * Return: always 0
+ * print_numbers - print integer numbers
+ * @n: the integer to be printed
  */
 
-int main(void)
+void print_numbers(int n)
 {
-	print_numbers('98');
-	_putchar('/n');
-	print_numbers('42');
-	_putchar('/n');
-	print_numbers('1040');
-	_putchar('/n');
-	print_numbers('0');
-	_putchar('/n');
+	unsigned int num = n;
+		if (n < 0)
+		{
+		_putchar('-');
+			num = -num;
+		}
+		if ((num / 10) > 0)
+			print_number(num / 10);
+		_putchar((num % 10) + '0');
 
-	return (0);
 }
 
 
