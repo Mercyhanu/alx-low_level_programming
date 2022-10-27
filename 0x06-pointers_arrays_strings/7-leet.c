@@ -24,4 +24,4 @@ indx1++;
 }
 
 return (str);
-}
+i}
