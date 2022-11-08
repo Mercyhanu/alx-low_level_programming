@@ -1,40 +1,39 @@
+#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
-#include "holberton.h"
-
 /**
- * **alloc_grid - creates a two dimentional array of ints
- * @width: width of the matrix
- * @height: height of the matrix
- *
- * Return: pointer to the created matrix (success)
- * or NULL (Error)
+ * alloc_grid - nested loop to make grid
+ * @width: width input
+ * @height: height input
+ * Return: pointer to 2 dim. array
  */
 int **alloc_grid(int width, int height)
 {
-int **array;
+int **grid;
 int i, j;
-if (height <= 0 || width <= 0)
-	return (NULL);
-array = (int **) malloc(sizeof(int *) * height);
-if (array == NULL)
-	return (NULL);
+
+if (width <= 0 || height <= 0)
+return (NULL);
+
+grid = malloc(height * sizeof(int *));
+if (grid == NULL)
+return (NULL);
+
 for (i = 0; i < height; i++)
 {
-array[i] = (int *) malloc(sizeof(int) * width);
-if (array[i] == NULL)
+grid[i] = malloc(width * sizeof(int));
+if (grid[i] == NULL)
 {
-free(array);
-for (j = 0; j <= i; j++)
-free(array[i]);
+while (i >= 0)
+free(grid[i--]);
+free(grid);
 return (NULL);
 }
+
+
+for (j = 0; j < width; j++)
+grid[i][j] = 0;
 }
-for (i = 0; i < height; i++)
-{
-	for (j = 0; j < width; j++)
-{
-	array[i][j] = 0;
-}
-}
-return (array);
+
+return (grid);
 }
