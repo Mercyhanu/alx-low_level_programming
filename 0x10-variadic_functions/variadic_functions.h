@@ -1,4 +1,4 @@
-ifndef _VARIADIC_FUNCTIONS_
+#ifndef _VARIADIC_FUNCTIONS_
 #define _VARIADIC_FUNCTIONS_
 
 #include <stdarg.h>
